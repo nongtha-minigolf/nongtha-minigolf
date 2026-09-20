@@ -4,29 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0c3324">
-  <title>Nongtha Minigolf — Vientiane</title>
-  <meta name="description" content="18-hole mini golf in Ban Nongtha-Neua, Vientiane. How to get here, opening hours, and phone.">
+  <title>Nongtha Minigolf</title>
+  <meta name="description" content="">
   <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
   <link rel="apple-touch-icon" href="assets/images/logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Noto+Sans+Lao:wght@400;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Noto+Sans+Lao:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body data-lang="en">
-  <a class="skip" href="#find-us">Skip to how to get here</a>
+  <!-- Les textes, photos et infos se changent dans contenu.js -->
+  <a class="skip" href="#find-us" data-i18n="cta_map">How to get here</a>
 
   <header class="top">
     <a class="brand" href="#top">
-      <img src="assets/images/logo.jpg" alt="Nongtha Minigolf" width="44" height="44">
+      <img data-src="logo" alt="" width="44" height="44">
       <span>
-        <strong>Nongtha Minigolf</strong>
-        <small lang="lo">ສວນກອຟນ້ອຍ ບ້ານໜອງທາ</small>
+        <strong data-text="nom"></strong>
+        <small lang="lo" data-text="nom-local"></small>
       </span>
     </a>
     <div class="top-actions">
-      <button class="lang" type="button" data-lang-toggle aria-pressed="false">ລາວ</button>
-      <a class="btn btn-flag top-call" href="tel:+8562054148481">Call · ໂທ</a>
+      <div class="langs" role="group" aria-label="Language" data-langs></div>
+      <a class="btn btn-flag top-call" data-href="tel" data-text="appel"></a>
     </div>
   </header>
 
@@ -34,116 +35,108 @@
     <section class="hero">
       <div class="hero-top">
         <div class="hero-copy">
-          <p class="eyebrow" data-i18n="eyebrow">Vientiane · 18-hole mini golf</p>
-          <h1 data-i18n="hero">Mini golf<br>in Vientiane</h1>
+          <p class="eyebrow" data-i18n="eyebrow"></p>
+          <h1 data-i18n="hero"></h1>
         </div>
-        <img class="hero-mascot" src="assets/images/logo.jpg" alt="Nongtha Minigolf mascot" width="96" height="96">
+        <img class="hero-mascot" data-src="mascotte" alt="" width="96" height="96">
       </div>
-      <p class="lead" data-i18n="lead">18 holes next to Nongtha Lake, in Ban Nongtha-Neua.</p>
+      <p class="lead" data-i18n="lead"></p>
       <div class="hero-cta">
-        <a class="btn btn-flag" href="#find-us" data-i18n="cta_map">How to get here</a>
-        <a class="btn btn-ghost" href="tel:+8562054148481">020 54 148 481</a>
+        <a class="btn btn-flag" href="#find-us" data-i18n="cta_map"></a>
+        <a class="btn btn-ghost" data-href="tel" data-text="tel-affiche"></a>
       </div>
     </section>
 
     <section class="panel" id="find-us">
-      <p class="kicker" data-i18n="kicker_access">Location</p>
-      <h2 data-i18n="h_access">How to get here</h2>
-      <p class="sub" data-i18n="sub_access">Use the map, or show the address to your driver.</p>
+      <p class="kicker" data-i18n="kicker_access"></p>
+      <h2 data-i18n="h_access"></h2>
+      <p class="sub" data-i18n="sub_access"></p>
       <div class="access-grid">
         <article class="card">
-          <h3 data-i18n="h_address">Address</h3>
-          <p class="address">Hom 6, Ban Nongtha-Neua<br>Chanthabuly, Vientiane 01000</p>
-          <p class="address lao" lang="lo">ຮ່ອມ 6, ບ້ານ ໜອງທາ ເໜືອ<br>ເມືອງຈັນທະບູລີ, ນະຄອນຫຼວງວຽງຈັນ</p>
-          <p class="gps">GPS 18.00657, 102.60486</p>
+          <h3 data-i18n="h_address"></h3>
+          <p class="address" data-html="adresse"></p>
+          <p class="address lao" lang="lo" data-html="adresse-locale"></p>
+          <p class="gps" data-text="gps"></p>
           <div class="btn-row">
-            <a class="btn btn-flag" href="https://maps.app.goo.gl/13FEodnFiMYd54Jy6" target="_blank" rel="noopener" data-i18n="maps">Open in Google Maps</a>
-            <button class="btn btn-ghost" type="button" id="copy-driver" data-i18n="copy_driver">Copy for your driver</button>
+            <a class="btn btn-flag" data-href="maps" target="_blank" rel="noopener" data-i18n="maps"></a>
+            <button class="btn btn-ghost" type="button" id="copy-driver" data-i18n="copy_driver"></button>
           </div>
         </article>
         <ol class="tips">
           <li>
-            <strong data-i18n="tip1_t">By tuk-tuk or taxi</strong>
-            <span data-i18n="tip1">Ask for “Nongtha Minigolf, Hom 6, Ban Nongtha Neua,” and show the map.</span>
+            <strong data-i18n="tip1_t"></strong>
+            <span data-i18n="tip1"></span>
           </li>
           <li>
-            <strong data-i18n="tip2_t">Near Nongtha Lake</strong>
-            <span data-i18n="tip2">About 5 km north of the city center. Hom 6 is a small lane in Ban Nongtha-Neua.</span>
+            <strong data-i18n="tip2_t"></strong>
+            <span data-i18n="tip2"></span>
           </li>
           <li>
-            <strong data-i18n="tip3_t">Grab, Loca, bicycle or walk</strong>
-            <span data-i18n="tip3">Save the pin first, then follow the map.</span>
+            <strong data-i18n="tip3_t"></strong>
+            <span data-i18n="tip3"></span>
           </li>
         </ol>
       </div>
-      <a class="map-card" href="https://maps.app.goo.gl/13FEodnFiMYd54Jy6" target="_blank" rel="noopener">
-        <strong data-i18n="map_tap">Open in Maps</strong>
-        <small>Hom 6 · 18.00657, 102.60486</small>
+      <a class="map-card" data-href="maps" target="_blank" rel="noopener">
+        <strong data-i18n="map_tap"></strong>
+        <small data-text="map-hint"></small>
       </a>
       <div class="map-embed">
-        <iframe title="Nongtha Minigolf on the map" src="https://www.openstreetmap.org/export/embed.html?bbox=102.6018%2C18.0045%2C102.6079%2C18.0086&amp;layer=mapnik&amp;marker=18.00657%2C102.60486" loading="lazy"></iframe>
+        <iframe data-map-embed loading="lazy"></iframe>
       </div>
     </section>
 
     <section class="panel" id="photos">
-      <p class="kicker" data-i18n="kicker_gallery">Gallery</p>
-      <h2 data-i18n="h_gallery">Photos</h2>
-      <p class="sub gallery-empty" data-gallery-empty data-i18n="gallery_empty">Photos coming soon.</p>
+      <p class="kicker" data-i18n="kicker_gallery"></p>
+      <h2 data-i18n="h_gallery"></h2>
+      <p class="sub gallery-empty" data-gallery-empty hidden data-i18n="gallery_empty"></p>
       <div class="gallery-strip" data-gallery hidden></div>
     </section>
 
     <section class="panel phone-panel" id="call">
-      <p class="kicker" data-i18n="kicker_call">Contact</p>
-      <h2 data-i18n="h_call">Call us</h2>
-      <p class="sub" data-i18n="sub_call">Call or send a WhatsApp message.</p>
-      <a class="phone-number" href="tel:+8562054148481">020 54 148 481</a>
-      <p class="intl">+856 20 54 148 481</p>
+      <p class="kicker" data-i18n="kicker_call"></p>
+      <h2 data-i18n="h_call"></h2>
+      <p class="sub" data-i18n="sub_call"></p>
+      <a class="phone-number" data-href="tel" data-text="tel-affiche"></a>
+      <p class="intl" data-text="tel-intl"></p>
       <div class="btn-row triple">
-        <a class="btn btn-flag" href="tel:+8562054148481" data-i18n="call_now">Call now</a>
-        <a class="btn btn-ghost" href="https://wa.me/8562054148481" target="_blank" rel="noopener">WhatsApp</a>
-        <button class="btn btn-ghost" type="button" id="copy-phone" data-i18n="copy_num">Copy number</button>
+        <a class="btn btn-flag" data-href="tel" data-i18n="call_now"></a>
+        <a class="btn btn-ghost" data-href="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+        <button class="btn btn-ghost" type="button" id="copy-phone" data-i18n="copy_num"></button>
       </div>
     </section>
 
     <section class="split">
       <article class="panel tight" id="hours">
-        <p class="kicker" data-i18n="kicker_hours">Plan your visit</p>
-        <h2 data-i18n="h_hours">Hours</h2>
-        <p class="open-pill" data-open-status data-i18n="checking">Checking Vientiane time...</p>
-        <table class="hours">
-          <tr data-days="1,2,3,4">
-            <th data-i18n="mon">Mon – Thu</th>
-            <td>15:00 – 23:00</td>
-          </tr>
-          <tr data-days="5,6,0">
-            <th data-i18n="fri">Fri – Sun</th>
-            <td>11:00 – 23:00</td>
-          </tr>
-        </table>
-        <p class="note" data-i18n="hours_note">Weekdays from 15:00. Weekends from 11:00.</p>
+        <p class="kicker" data-i18n="kicker_hours"></p>
+        <h2 data-i18n="h_hours"></h2>
+        <p class="open-pill" data-open-status data-i18n="checking"></p>
+        <table class="hours" data-hours></table>
+        <p class="note" data-i18n="hours_note"></p>
       </article>
       <article class="panel tight" id="about">
-        <p class="kicker" data-i18n="kicker_about">About</p>
-        <h2 data-i18n="h_about">18 outdoor holes</h2>
-        <p data-i18n="about1">Outdoor mini golf in Ban Nongtha-Neua. Clubs and balls are provided.</p>
-        <p data-i18n="about2">We speak English, German and Lao.</p>
-        <p><a href="https://www.facebook.com/profile.php?id=61592567421307" target="_blank" rel="noopener">Facebook · Nongtha Minigolf</a></p>
+        <p class="kicker" data-i18n="kicker_about"></p>
+        <h2 data-i18n="h_about"></h2>
+        <p data-i18n="about1"></p>
+        <p data-i18n="about2"></p>
+        <p><a data-href="facebook" target="_blank" rel="noopener" data-text="facebook"></a></p>
       </article>
     </section>
   </main>
 
   <footer class="foot">
-    <img src="assets/images/logo.jpg" alt="Nongtha Minigolf" width="64" height="64">
-    <p>Nongtha Minigolf · ສວນກອຟນ້ອຍ ບ້ານໜອງທາ<br>
-      <a href="tel:+8562054148481">020 54 148 481</a> ·
-      <a href="mailto:roccomuc81@yahoo.de">roccomuc81@yahoo.de</a>
+    <img data-src="logo" alt="" width="64" height="64">
+    <p>
+      <span data-text="nom"></span> · <span data-text="nom-local"></span><br>
+      <a data-href="tel" data-text="tel-affiche"></a> ·
+      <a data-href="email" data-text="email"></a>
     </p>
   </footer>
 
   <nav class="dock" aria-label="Quick actions">
-    <a class="dock-maps" href="https://maps.app.goo.gl/13FEodnFiMYd54Jy6" target="_blank" rel="noopener" data-i18n="dock_maps">Maps</a>
-    <a class="dock-call" href="tel:+8562054148481" data-i18n="dock_call">Call</a>
-    <a class="dock-wa" href="https://wa.me/8562054148481" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="dock-maps" data-href="maps" target="_blank" rel="noopener" data-i18n="dock_maps"></a>
+    <a class="dock-call" data-href="tel" data-i18n="dock_call"></a>
+    <a class="dock-wa" data-href="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
   </nav>
 
   <dialog class="lightbox" data-lightbox aria-label="Photo">
@@ -153,7 +146,8 @@
     <button class="lightbox-nav next" type="button" data-lightbox-next aria-label="Next">›</button>
   </dialog>
 
-  <p class="toast" data-toast hidden>Copied.</p>
+  <p class="toast" data-toast hidden></p>
+  <script src="contenu.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

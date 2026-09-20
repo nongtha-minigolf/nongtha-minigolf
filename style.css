@@ -11,8 +11,9 @@
   --line: rgba(12, 51, 36, 0.12);
   --shadow: 0 12px 32px rgba(12, 51, 36, 0.1);
   --en: "Fredoka", "Nunito", system-ui, sans-serif;
-  --body: "Nunito", "Noto Sans Lao", system-ui, sans-serif;
+  --body: "Nunito", "Noto Sans Lao", "Noto Sans Thai", system-ui, sans-serif;
   --lo: "Noto Sans Lao", "Nunito", system-ui, sans-serif;
+  --th: "Noto Sans Thai", "Nunito", system-ui, sans-serif;
   --pad: 1rem;
   --dock: 4.5rem;
   --safe-b: env(safe-area-inset-bottom, 0px);
@@ -44,8 +45,11 @@ body {
 }
 
 body[data-lang="lo"] { font-family: var(--lo); }
+body[data-lang="th"] { font-family: var(--th); }
 body[data-lang="lo"] .eyebrow,
-body[data-lang="lo"] .kicker {
+body[data-lang="lo"] .kicker,
+body[data-lang="th"] .eyebrow,
+body[data-lang="th"] .kicker {
   text-transform: none;
   letter-spacing: 0;
 }
@@ -81,9 +85,10 @@ a { color: var(--grass); }
   top: 0;
   z-index: 10;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.45rem;
   padding: calc(0.55rem + var(--safe-t)) var(--pad) 0.55rem;
   background: rgba(244, 239, 226, 0.94);
   backdrop-filter: blur(12px);
@@ -108,11 +113,18 @@ a { color: var(--grass); }
   flex: 0 0 auto;
 }
 
+.brand span {
+  min-width: 0;
+}
+
 .brand strong {
   display: block;
+  overflow: hidden;
   font-family: var(--en);
   font-size: 0.9rem;
   line-height: 1.1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .brand small {
@@ -126,25 +138,42 @@ a { color: var(--grass); }
   flex: 0 0 auto;
 }
 
+.langs {
+  display: flex;
+  align-items: stretch;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+}
+
 .lang {
   flex: 0 0 auto;
-  border: 1px solid var(--line);
-  background: var(--paper);
+  border: 0;
+  border-right: 1px solid var(--line);
+  background: transparent;
   color: var(--ink);
-  border-radius: 999px;
-  min-height: 40px;
-  min-width: 3.4rem;
-  padding: 0.35rem 0.55rem;
+  border-radius: 0;
+  min-height: 34px;
+  min-width: 2.1rem;
+  padding: 0.22rem 0.34rem;
   font: inherit;
-  font-size: 0.8rem;
+  font-size: 0.68rem;
   font-weight: 800;
+  line-height: 1;
   cursor: pointer;
 }
+
+.lang:last-child { border-right: 0; }
 
 .lang[aria-pressed="true"] {
   background: var(--deep);
   color: var(--cream);
 }
+
+.lang[lang="lo"] { font-family: var(--lo); }
+.lang[lang="th"] { font-family: var(--th); }
 
 .btn {
   display: inline-flex;
@@ -226,6 +255,10 @@ h1, h2, h3 {
 body[data-lang="lo"] h1,
 body[data-lang="lo"] h2,
 body[data-lang="lo"] h3 { font-family: var(--lo); }
+
+body[data-lang="th"] h1,
+body[data-lang="th"] h2,
+body[data-lang="th"] h3 { font-family: var(--th); }
 
 h1 {
   font-size: 1.55rem;
