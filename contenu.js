@@ -7,8 +7,8 @@
    Regles simples :
    - Garde les virgules et les guillemets.
    - Pour un retour a la ligne dans un titre : <br>
-   - Pour une nouvelle photo : mets le fichier dans le dossier indique,
-     puis ajoute son nom dans la liste "galerie".
+   - Pour une nouvelle photo : nomme-la 09.jpg, 10.jpg, etc.
+     et mets-la dans assets/images/gallery/. Elle s affiche toute seule.
    ============================================================================= */
 
 window.CONTENU = {
@@ -51,18 +51,8 @@ window.CONTENU = {
   images: {
     logo: "assets/images/logo.jpg",
     mascotte: "assets/images/logo.jpg",
-    galerieDossier: "assets/images/gallery/",
-    /* Ajoute ici le nom du fichier apres l avoir place dans le dossier */
-    galerie: [
-      "01.jpg",
-      "02.jpg",
-      "03.jpg",
-      "04.jpg",
-      "05.jpg",
-      "06.jpg",
-      "07.jpg",
-      "08.jpg"
-    ]
+    galerieDossier: "assets/images/gallery/"
+    /* Les photos 01.jpg, 02.jpg, 03.jpg... de ce dossier s affichent seules. */
   },
 
   /* --- Textes du site ------------------------------------------------------
