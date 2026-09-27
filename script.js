@@ -238,26 +238,13 @@ function probeImage(file) {
   });
 }
 
-function galleryFileName(number) {
-  return String(number).padStart(2, "0") + ".jpg";
-}
-
 async function listGallery() {
+  const listed = site().images.galerie || [];
   const found = [];
-  const batchSize = 8;
-  const max = 96;
-
-  for (let start = 1; start <= max; start += batchSize) {
-    const names = [];
-    for (let number = start; number < start + batchSize; number += 1) {
-      names.push(galleryFileName(number));
-    }
-    const hits = await Promise.all(names.map(probeImage));
-    const present = hits.filter(Boolean);
-    if (!present.length) break;
-    found.push(...present);
+  for (const file of listed) {
+    const hit = await probeImage(file);
+    if (hit) found.push(hit);
   }
-
   return found;
 }
 
@@ -325,3 +312,4 @@ bindActions();
 listGallery().then(renderGallery);
 applyLang(localStorage.getItem("nongtha-lang") || site().langueParDefaut);
 setInterval(updateOpenStatus, 60 * 1000);
+
