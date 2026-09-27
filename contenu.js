@@ -14,7 +14,7 @@
 window.CONTENU = {
   /* --- Infos du lieu ------------------------------------------------------- */
   nom: "Nongtha Minigolf",
-  nomLocal: "ສວນກອຟນ້ອຍ ບ້ານໜອງທາ",
+  nomLocal: "ສວນກອຟນ້ອຍ ບ້ານໜອງທາ--",
   titreOnglet: "Nongtha Minigolf \u2014 Vientiane",
   description: "18-hole mini golf in Ban Nongtha-Neua, Vientiane. How to get here, opening hours, and phone.",
 
