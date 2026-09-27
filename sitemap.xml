@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://nongtha-minigolf.github.io/nongtha-minigolf/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <image:image>
+      <image:loc>https://nongtha-minigolf.github.io/nongtha-minigolf/assets/images/logo.jpg</image:loc>
+      <image:title>Nongtha Minigolf</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://nongtha-minigolf.github.io/nongtha-minigolf/assets/images/gallery/01.jpg</image:loc>
+      <image:title>Nongtha Minigolf, Vientiane</image:title>
+    </image:image>
+  </url>
+</urlset>

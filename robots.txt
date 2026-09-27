@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nongtha-minigolf.github.io/nongtha-minigolf/sitemap.xml

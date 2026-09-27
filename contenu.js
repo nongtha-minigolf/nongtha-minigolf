@@ -16,7 +16,8 @@ window.CONTENU = {
   nom: "Nongtha Minigolf",
   nomLocal: "ສວນກອຟນ້ອຍ ບ້ານໜອງທາ",
   titreOnglet: "Nongtha Minigolf \u2014 Vientiane",
-  description: "18-hole mini golf in Ban Nongtha-Neua, Vientiane. How to get here, opening hours, and phone.",
+  description: "18-hole outdoor mini golf in Ban Nongtha-Neua, Vientiane, Laos. Map, opening hours and phone for Nongtha Minigolf.",
+  url: "https://nongtha-minigolf.github.io/nongtha-minigolf/",
 
   telephoneAffiche: "020 54 148 481",
   telephoneInternational: "+856 20 54 148 481",

@@ -75,14 +75,87 @@ function osmEmbed() {
   return `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat}%2C${lng}`;
 }
 
+function absoluteUrl(path) {
+  const base = String(site().url || "").replace(/\/$/, "");
+  if (!path) return base;
+  if (/^https?:\/\//.test(path)) return path;
+  if (!base) return path;
+  return base + "/" + String(path).replace(/^\//, "");
+}
+
+function setMeta(attr, name, value) {
+  if (!value) return;
+  const el = document.querySelector(`meta[${attr}="${name}"]`);
+  if (el) el.setAttribute("content", value);
+}
+
+function updateSeo() {
+  const data = site();
+  const base = String(data.url || "").replace(/\/$/, "");
+  const pageUrl = base ? base + "/" : "";
+  const title = data.titreOnglet;
+  const description = data.description;
+  const photos = (data.images.galerie || []).map((file) => absoluteUrl(data.images.galerieDossier + file));
+  const image = photos[0] || absoluteUrl(data.images.logo);
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  document.title = title;
+  setMeta("name", "description", description);
+  setMeta("property", "og:title", title);
+  setMeta("property", "og:description", description);
+  setMeta("property", "og:url", pageUrl);
+  setMeta("property", "og:image", image);
+  setMeta("name", "twitter:title", title);
+  setMeta("name", "twitter:description", description);
+  setMeta("name", "twitter:image", image);
+
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical && pageUrl) canonical.href = pageUrl;
+
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    name: data.nom,
+    alternateName: data.nomLocal,
+    description: description,
+    url: pageUrl || undefined,
+    image: [absoluteUrl(data.images.logo), ...photos],
+    telephone: data.telephoneTel,
+    email: data.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: String(data.adresse).split("\n")[0],
+      addressLocality: "Vientiane",
+      addressRegion: "Chanthabuly",
+      postalCode: "01000",
+      addressCountry: "LA"
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: data.gpsLatitude,
+      longitude: data.gpsLongitude
+    },
+    hasMap: data.googleMaps,
+    sameAs: [data.facebook],
+    sport: "Mini golf",
+    openingHoursSpecification: (data.horaires || []).map((slot) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: slot.jours.map((day) => days[day]),
+      opens: slot.debut,
+      closes: slot.fin
+    }))
+  };
+
+  const block = document.querySelector("script[data-seo-json]");
+  if (block) block.textContent = JSON.stringify(json).replace(/</g, "\\u003c");
+}
+
 function fillSite() {
   const data = site();
   const telHref = "tel:" + data.telephoneTel;
   const maps = data.googleMaps;
 
-  document.title = data.titreOnglet;
-  const desc = document.querySelector('meta[name="description"]');
-  if (desc) desc.setAttribute("content", data.description);
+  updateSeo();
 
   document.querySelectorAll("[data-src=logo]").forEach((el) => {
     el.src = data.images.logo;
@@ -266,7 +339,7 @@ function renderGallery(files) {
     button.className = "gallery-item";
     const img = document.createElement("img");
     img.src = site().images.galerieDossier + file;
-    img.alt = `${site().nom} ${index + 1}`;
+    img.alt = `${site().nom}, Vientiane — photo ${index + 1}`;
     img.loading = "lazy";
     button.append(img);
     button.addEventListener("click", () => openLightbox(index));
@@ -277,7 +350,7 @@ function renderGallery(files) {
 function openLightbox(index) {
   galleryIndex = index;
   lightboxImg.src = site().images.galerieDossier + galleryItems[index];
-  lightboxImg.alt = `${site().nom} ${index + 1}`;
+  lightboxImg.alt = `${site().nom}, Vientiane — photo ${index + 1}`;
   if (!lightbox.open) lightbox.showModal();
 }
 
